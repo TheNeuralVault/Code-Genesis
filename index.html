@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Matrix Vault | The Empire of Code</title>
+    
+    <!-- TITANIUM ENGINE CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- GOOGLE ANALYTICS -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P1PCVNCCE4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P1PCVNCCE4');
+    </script>
+</head>
+<body>
+
+    <!-- ATMOSPHERE -->
+    <canvas id="matrix" class="matrix-canvas"></canvas>
+
+    <main class="container" style="height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+        
+        <div class="glass-panel" style="animation: fadeIn 2s ease;">
+            <h1 class="mono" style="color: var(--neon-core); margin-bottom: 0.5rem;">NEURAL MATRIX VAULT</h1>
+            <p style="color: #fff; margin-bottom: 2rem;">THE SINGULARITY OF CODE</p>
+
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="neuralcore/initiate.html" class="btn-core">
+                    INITIALIZE PRODUCT
+                </a>
+                <a href="code-genesis/vol-1-origin.html" class="btn-core" style="filter: hue-rotate(90deg);">
+                    ACCESS INTELLIGENCE
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- MATRIX RAIN SCRIPT -->
+    <script>
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const letters = '01 NMV ';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+        function draw() {
+            ctx.fillStyle = 'rgba(5, 5, 5, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#00ff41'; 
+            ctx.font = fontSize + 'px monospace';
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            }
+        }
+        setInterval(draw, 33);
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+    </script>
+</body>
+</html>
